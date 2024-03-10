@@ -1,5 +1,5 @@
 
-
+let o_mod = await import ('https://deno.land/x/handyhelpers@3.4/mod.js')
 let a_o = Array.from(document.querySelectorAll('[data-message-author-role="user"]')).map(o=>{
 
     console.log(o.textContent)
@@ -22,7 +22,7 @@ let a_s_src = Array.from(document.querySelectorAll('img')).map(o=>o.src).filter(
 
 let f_a_s = function(s_string){
     return a_o
-    .filter(o=>o.s_prompt?.includes(s_string))
+    .filter(o=>o.s_prompt?.toLowerCase().includes(s_string))
     .map(o=>{
             let s_name_file = o.s_src_img.split("filename%3").pop().split('.webp').shift()
             return [
@@ -31,5 +31,11 @@ let f_a_s = function(s_string){
             ].join('\n')
     }).join('\r\n')
 }
-let a_s2 = f_a_s('wildflowers')
+let s_keyword = 'elephants'
+let a_s2 = f_a_s(s_keyword)
 console.log(a_s2)
+
+await o_mod.f_download_text_file(
+    `${s_keyword}.sh`,
+    a_s2.join('\n')
+)
