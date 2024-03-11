@@ -575,6 +575,13 @@ let a_s = [
         return o.s_description_text
     })
 ]
+a_s = [
+    ...'Another simple logo for my it company.|'.repeat(5).split('|'), 
+    ...'Another simple logo for my fast food joint.|'.repeat(10).split('|'), 
+    ...'Another simple logo for my neural institute.|'.repeat(10).split('|'), 
+    ...'Another simple logo for my library.|'.repeat(10).split('|'), 
+]
+
 for(let s of a_s){ 
     await f_sleep_n_ms(1000)
     await f_o_response__from_s_input(
