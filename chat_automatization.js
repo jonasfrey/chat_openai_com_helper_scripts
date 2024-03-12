@@ -598,14 +598,20 @@ let a_s = [
 // "A hyperdetailed CGI illustration of a delicate spider web woven across a nebula. The web is formed from shimmering stardust, connecting various clusters of stars that represent the spider's intricate legs. The center of the web glows with a faint light, hinting at the hidden spider within.",
 
 // "A whimsical CGI scene of a playful crab scuttling across a bed of nebulae. Its shell is a swirling blue and green nebula, with pincers formed from stardust. Tiny galaxies twinkle in the background, adding to the fantastical scenery.",
-...["Lion", "Elephant", "Tiger", "Zebra", "Giraffe", "Cheetah", "Gorilla", "Chimpanzee", "Kangaroo", "Koala",
+...[ 
+    "Elephant", "Tiger", "Zebra", "Giraffe", "Cheetah", "Gorilla", "Chimpanzee", "Kangaroo", "Koala",
 "Panda", "Hippopotamus", "Rhinoceros", "Whale", "Dolphin", "Shark", "Sea Turtle", "Octopus", "Eagle",
-"Hawk", "Owl", "Parrot", "Peacock", "Hummingbird", "Snake", "Spider", "Butterfly", "Bee", "Ant", "Crab"].map(s=>{
-    return `A breathtaking astrophotography of a mystical ${s} formed entirely from celestial nebulae.
-    The swirling gas clouds define the animal's powerful form, with vibrant colors like blues, purples, and pinks highlighting its features.
-    Starlight peeks through the nebulae, adding depth and a sense of awe to this fantastical creature. 
-    Imagine the image captured with a powerful telescope, revealing the intricate details of the nebulae that form the animal's body, 
-    deep sky, nebula, star cluster, galaxy, wide field, long exposure, hydrogen alpha, emission nebula, reflection nebula, planetary nebula, supernova remnant, cosmic dust, dark nebula, light pollution filter, equatorial mount, astrophotography camera, telescope, astrophotographer`
+"Hawk", "Owl", "Parrot",
+ "Peacock", "Hummingbird", "Snake", "Spider", "Butterfly", "Bee", "Ant", "Crab","Lion"].map(s=>{
+
+    return `Generate an awe-inspiring crop circle design that resembles the graceful form of an ${s}. Let the intricate patterns and curves of the crop mimic the contours and movement of the creature, capturing its essence in a mesmerizing display of natural artistry. The design should evoke a sense of wonder and curiosity, as if the crop itself has come alive to create this stunning image in homage to the beauty of the animal kingdom`
+    // return `Generate an image of an ${s} that is composed of the sea. The scene should depict an aerial view of the ocean, with a portion of the blue sea visible along with the white foam created by the tiny waves. The animal should seamlessly blend into the sea, incorporating elements of water, foam, and possibly marine life to create a surreal and fantastical representation of an oceanic creature.`
+    // return `The microscopic entity exhibits a striking resemblance to the majestic form of a ${s}, its contours sharply defined within the microscopic realm.`
+    // return `A breathtaking astrophotography of a mystical ${s} formed entirely from celestial nebulae.
+    // The swirling gas clouds define the animal's powerful form, with vibrant colors like blues, purples, and pinks highlighting its features.
+    // Starlight peeks through the nebulae, adding depth and a sense of awe to this fantastical creature. 
+    // Imagine the image captured with a powerful telescope, revealing the intricate details of the nebulae that form the animal's body, 
+    // deep sky, nebula, star cluster, galaxy, wide field, long exposure, hydrogen alpha, emission nebula, reflection nebula, planetary nebula, supernova remnant, cosmic dust, dark nebula, light pollution filter, equatorial mount, astrophotography camera, telescope, astrophotographer`
 
 })
 ]
