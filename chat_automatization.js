@@ -432,161 +432,188 @@ let f_a_o__from_a_s_prompt__considering_cap_limit = async function(a_s_prompt){
 let f = async function(){
 
 // let a_s = a_o.map(o=>o.s_prompt)
-let a_s = [
-    // ...[
-    //     // "A traditional Japanese tea ceremony takes place in a serene garden setting, with participants dressed in elegant kimonos.",
-    //     // "An artist meticulously paints a detailed landscape, capturing the essence of a tranquil countryside scene on canvas.",
-    //     // "A family of elephants frolics in a lush savanna, their graceful movements reflecting the harmony of wildlife in their natural habitat.",
-    //     // "A charming cobblestone street winds through a picturesque European village, lined with quaint cafes and colorful flower boxes.",
+// let a_s = [
+//     // ...[
+//     //     // "A traditional Japanese tea ceremony takes place in a serene garden setting, with participants dressed in elegant kimonos.",
+//     //     // "An artist meticulously paints a detailed landscape, capturing the essence of a tranquil countryside scene on canvas.",
+//     //     // "A family of elephants frolics in a lush savanna, their graceful movements reflecting the harmony of wildlife in their natural habitat.",
+//     //     // "A charming cobblestone street winds through a picturesque European village, lined with quaint cafes and colorful flower boxes.",
     
-    //     // "A cozy cabin nestled in a snowy forest glows warmly in the moonlight, offering a peaceful retreat from the wintry wilderness.",
-    //     // "A cascading waterfall tumbles down a rocky cliff into a crystal-clear pool below, surrounded by lush greenery and vibrant wildflowers.",
-    //     // "A tranquil countryside meadow blooms with a colorful array of wildflowers, as butterflies flutter amidst the vibrant blossoms.",
-    //     // "A winding river cuts through a rugged canyon, its crystal-clear waters reflecting the towering cliffs that rise on either side.",    
-    // ].map(
-    //     s=>{
-    //         return new Array(10).fill(0).map(n=>{
-    //             return s
-    //         })
-    //     }
-    // ).flat()
-    ...[
-        // {
-        //   "s_description_text": "A nighttime patrol unfolds: an astronaut, perched atop their horse, scans the alien landscape with a powerful searchlight. The horse, ears perked and nostrils flaring, seems attuned to the environment.  Are they patrolling for nocturnal predators, or searching for signs of alien life?"
-        // },
-        // {
-        //   "s_description_text": "A curious encounter unfolds: an astronaut, kneeling on the ground, examines the hoof of their horse. The horse patiently lifts its leg, its gaze fixed on the astronaut's visor.  Is the astronaut attending to a minor injury, or perhaps studying the horse's unique physiology for adaptation on this new world?"
-        // },
-        // {
-        //   "s_description_text": "A race against the clock unfolds: an astronaut on horseback gallops towards a colossal, half-built structure in the distance. The astronaut gestures urgently, urging their horse to greater speed.  Are they transporting vital supplies to the construction site, or perhaps racing to evacuate before an impending disaster?"
-        // },
-        // {
-        //   "s_description_text": "A lone rider explores: an astronaut, silhouetted against a backdrop of towering alien trees, sits confidently atop their horse. The horse cautiously picks its way through the dense undergrowth, its hooves barely making a sound.  Is this a scouting mission for a new colony, or a scientific expedition to study this exotic environment?"
-        // },
-        // {
-        //   "s_description_text": "A tender moment unfolds: an astronaut, helmet resting beside them, sketches their horse in a worn notebook. The horse grazes contentedly nearby, bathed in the warm glow of a binary sunset.  Is this a record of a cherished companion, or a scientific study of an unusual creature?"
-        // },
-        // {
-        //   "s_description_text": "A playful moment unfolds: an astronaut, holding a strange, bioluminescent plant, playfully dangles it in front of their horse. The horse, snorting and pawing the ground playfully, seems eager to snatch the glowing prize.  Is this a moment of levity during a long exploration, or are they testing the properties of the alien flora?"
-        // },
-        // {
-        //   "s_description_text": "A silent exchange unfolds: an astronaut, holding a strange device, extends it towards their horse. The horse, ears pricked and nostrils flared, snorts curiously at the unfamiliar object.  Is the astronaut offering a treat or attempting to communicate using alien technology?"
-        // },
-        // {
-        //   "s_description_text": "A serene partnership unfolds: an astronaut, hand outstretched, offers a strange, bioluminescent plant to their horse. The horse, bathed in the ethereal glow of the plant, lowers its head curiously to sniff the offering.  Is this a moment of trust between explorer and companion, or are they studying the potential uses of this alien flora?"
-        // },
-        // {
-        //   "s_description_text": "An unexpected hurdle: an astronaut, sprawled on the alien ground, reaches for their helmet which has tumbled a few feet away. Their horse, standing calmly nearby, whinnies softly.  Did the astronaut lose their balance, or were they spooked by something in this strange new environment?"
-        // },
-        // {
-        //   "s_description_text": "A watchful vigil: an astronaut, perched atop a rocky ridge, surveys the alien landscape through a pair of high-powered binoculars. Their horse stands patiently beside them, its head held high, ears swiveling to catch any sound. Are they searching for signs of life, or keeping watch for potential dangers in this uncharted territory?"
-        // }
-        {
-            "s_description_text": "A bustling marketplace unfolds: vendors hawk their wares under colorful awnings, while shoppers weave through the crowd. A lone figure, silhouetted against the setting sun, seems lost in thought. Are they a weary traveler, or a local resident with a hidden agenda?"
-            },
-            {
-            "s_description_text": "A solitary lighthouse stands sentinel on a rocky cliff, its powerful beam slicing through the stormy night. Enormous waves crash against the jagged rocks, sending plumes of spray high into the air.  Is this a scene of peaceful solitude or a dramatic struggle against the elements?"
-            },
-            {
-            "s_description_text": "A majestic waterfall cascades down a lush green mountainside, its water collecting in a crystal-clear pool below. Lush ferns and vibrant flowers line the rocky path leading to the falls.  Is this a haven of tranquility or a hidden entrance to a forgotten world?"
-            },
-            {
-            "s_description_text": "A vibrant coral reef teems with life: colorful fish dart between intricate coral formations, while a graceful sea turtle glides effortlessly through the crystal-clear water.  Is this a glimpse into an untouched underwater paradise or a fragile ecosystem threatened by change?"
-            },
-            {
-            "s_description_text": "A lone sailboat battles a raging storm. The wind whips at the tattered sails, and the boat heels dangerously in the churning waves. The crew, faces etched with determination, fights to keep the vessel afloat.  Will they weather the storm, or will they be swallowed by the unforgiving sea?"
-            },
-            {
-            "s_description_text": "A bustling cityscape stretches towards the horizon. Towering skyscrapers pierce the clouds, while streams of vehicles navigate the complex network of roads below.  Is this a symbol of human progress or a cautionary tale of unchecked urban sprawl?"
-            },
-            {
-            "s_description_text": "A group of archaeologists meticulously brushes away dirt from an ancient artifact. The artifact, partially buried in the sand, appears to be a weathered statue of a long-forgotten deity.  What secrets will be unearthed from the sands of time?"
-            },
-            {
-            "s_description_text": "A lone figure gazes out at a breathtaking vista of rolling hills bathed in the golden light of dawn. Mist hangs low in the valleys, and a gentle breeze rustles through the tall grass.  Is this a moment of peaceful reflection or a yearning for adventure?"
-            },
-            {
-            "s_description_text": "A bustling kitchen is a whirlwind of activity. Chefs expertly chop vegetables, stir simmering pots, and plate dishes with artistic flair. The air is filled with the aroma of delicious food.  Is this a glimpse into a world-renowned restaurant or a family preparing a home-cooked meal?"
-            },
-            {
-            "s_description_text": "A group of friends laughs and cheers as they raise their glasses in a toast. The table is laden with food and drinks, and the room is filled with festive decorations.  Is this a joyous celebration of a special occasion or a casual gathering of loved ones?"
-            },
-            {
-            "s_description_text": "A lone hiker navigates a treacherous mountain path. The path is narrow and winding, with sheer cliffs on one side and a deep valley on the other. The hiker, determined and focused, continues their ascent.  Will they reach the summit, or will the treacherous terrain prove too much?"
-            },
-            {
-            "s_description_text": "A majestic lion surveys its domain from atop a rocky outcrop. Its golden mane shimmers in the sunlight, and its powerful gaze commands respect.  Is this the king of the jungle asserting its dominance, or a solitary creature observing its surroundings?"
-            },
-            {
-            "s_description_text": "A bustling train station is a hive of activity. Passengers hurry to board their trains, while vendors hawk their wares and announcements echo through the halls.  Is this the start of an exciting journey or a return to a familiar place?"
-            },
-            {
-            "s_description_text": "A group of children play pirates on a sandy beach. They build elaborate sandcastles, brandish sticks as swords, and chase each other with shouts of delight.  Is this a carefree afternoon of make-believe or a glimpse into the future of daring explorers?"
-            },
-            {
-            "s_description_text": "A concert hall is filled with the music of a symphony orchestra. The conductor leads with passion, and the musicians play with skill and precision. The audience sits enthralled, captivated by the beautiful sounds.  Is this a night of cultural enrichment or a fleeting escape from the everyday world?"
-            },
-            {
-                "s_description_text": "An abandoned library stands shrouded in mystery. Cobwebs drape the dusty shelves, and sunlight streams through broken windows, illuminating forgotten books.  Does this forgotten place hold hidden knowledge, or is it simply a relic of the past?"
-                },
-                {
-                "s_description_text": "A lone blacksmith hammers away at a piece of glowing metal on his anvil. Sparks fly as he shapes the metal with powerful blows, his brow furrowed in concentration.  Is this a skilled craftsman at work, or an artist creating a masterpiece?"
-                },
-                {
-                "s_description_text": "A bustling street market overflows with colorful fabrics, exotic spices, and handcrafted goods. Shopkeepers call out to passersby, and the air is filled with the sounds of bargaining and laughter.  Is this a cultural melting pot or a testament to the human spirit of commerce?"
-                },
-                {
-                "s_description_text": "A serene yoga class unfolds in a sunlit studio. Participants lie on their mats in various poses, their eyes closed and their bodies relaxed. The instructor speaks softly, guiding them through their practice.  Is this a path to inner peace or a trendy fitness routine?"
-                },
-                {
-                "s_description_text": "A group of protestors marches down a crowded street, their voices chanting slogans and their signs held high. Police officers in riot gear stand guard on the sidelines.  Is this a fight for justice or a symptom of social unrest?"
-                },
-                {
-                "s_description_text": "A vintage car rally winds its way through a picturesque countryside landscape. Classic automobiles from different eras gleam in the sunlight, their engines purring contentedly.  Is this a nostalgic celebration of automotive history or a competition for passionate collectors?"
-                },
-                {
-                "s_description_text": "A group of astronomers peers through a giant telescope, their eyes focused on the distant stars. The control room is filled with blinking lights and complex computer screens.  Are they searching for new worlds or unlocking the secrets of the universe?"
-                },
-                {
-                "s_description_text": "A lone angler casts their line into a glassy lake at sunrise. The mist hangs low over the water, and the only sound is the gentle lapping of waves against the shore.  Is this a moment of peaceful solitude or a patient wait for the perfect catch?"
-                },
-                {
-                "s_description_text": "A bustling ballet studio echoes with the sounds of leaping dancers and Tchaikovsky's Swan Lake. Young ballerinas rehearse their steps with grace and precision, striving for perfection.  Is this the start of a promising career or a dedication to a lifelong passion?"
-                },
-                {
-                "s_description_text": "A bustling bakery fills the air with the aroma of freshly baked bread. Golden loaves and pastries line the shelves, tempting customers with their deliciousness.  Is this a glimpse into a traditional craft or a modern take on a timeless treat?"
-                },
-                {
-                "s_description_text": "A group of rock climbers scales a sheer cliff face, their movements precise and calculated. They rely on trust and teamwork to navigate the challenging terrain.  Is this a test of physical skill or a metaphor for overcoming obstacles?"
-                },
-                {
-                "s_description_text": "A bustling hospital emergency room is a scene of controlled chaos. Medical professionals work tirelessly to treat patients, their faces etched with determination.  Is this a battle against time or a testament to human compassion?"
-                },
-                {
-                "s_description_text": "A blacksmith's apprentice carefully observes their master at work. They watch with fascination as the metal is shaped and transformed, eager to learn the secrets of the craft.  Is this the passing of knowledge from one generation to the next or the start of a lifelong dedication?"
-                },
-                {
-                "s_description_text": "A majestic bald eagle soars through a clear blue sky, its powerful wings beating steadily. It surveys the landscape below with a keen eye, searching for prey.  Is this a symbol of freedom and power or a predator at the top of the food chain?"
-                },
-                {
-                "s_description_text": "A bustling farmers market overflows with fresh produce. Local farmers showcase their best offerings, from colorful fruits and vegetables to fragrant herbs and vibrant flowers.  Is this a celebration of local agriculture or a glimpse into a sustainable way of life?"
-                }
-    ].map(o=>{
-        return o.s_description_text
-    })
-]
-a_s = [
-    ...'Another simple logo for my it company.|'.repeat(5).split('|'), 
-    ...'Another simple logo for my fast food joint.|'.repeat(10).split('|'), 
-    ...'Another simple logo for my neural institute.|'.repeat(10).split('|'), 
-    ...'Another simple logo for my library.|'.repeat(10).split('|'), 
-]
+//     //     // "A cozy cabin nestled in a snowy forest glows warmly in the moonlight, offering a peaceful retreat from the wintry wilderness.",
+//     //     // "A cascading waterfall tumbles down a rocky cliff into a crystal-clear pool below, surrounded by lush greenery and vibrant wildflowers.",
+//     //     // "A tranquil countryside meadow blooms with a colorful array of wildflowers, as butterflies flutter amidst the vibrant blossoms.",
+//     //     // "A winding river cuts through a rugged canyon, its crystal-clear waters reflecting the towering cliffs that rise on either side.",    
+//     // ].map(
+//     //     s=>{
+//     //         return new Array(10).fill(0).map(n=>{
+//     //             return s
+//     //         })
+//     //     }
+//     // ).flat()
+//     ...[
+//         // {
+//         //   "s_description_text": "A nighttime patrol unfolds: an astronaut, perched atop their horse, scans the alien landscape with a powerful searchlight. The horse, ears perked and nostrils flaring, seems attuned to the environment.  Are they patrolling for nocturnal predators, or searching for signs of alien life?"
+//         // },
+//         // {
+//         //   "s_description_text": "A curious encounter unfolds: an astronaut, kneeling on the ground, examines the hoof of their horse. The horse patiently lifts its leg, its gaze fixed on the astronaut's visor.  Is the astronaut attending to a minor injury, or perhaps studying the horse's unique physiology for adaptation on this new world?"
+//         // },
+//         // {
+//         //   "s_description_text": "A race against the clock unfolds: an astronaut on horseback gallops towards a colossal, half-built structure in the distance. The astronaut gestures urgently, urging their horse to greater speed.  Are they transporting vital supplies to the construction site, or perhaps racing to evacuate before an impending disaster?"
+//         // },
+//         // {
+//         //   "s_description_text": "A lone rider explores: an astronaut, silhouetted against a backdrop of towering alien trees, sits confidently atop their horse. The horse cautiously picks its way through the dense undergrowth, its hooves barely making a sound.  Is this a scouting mission for a new colony, or a scientific expedition to study this exotic environment?"
+//         // },
+//         // {
+//         //   "s_description_text": "A tender moment unfolds: an astronaut, helmet resting beside them, sketches their horse in a worn notebook. The horse grazes contentedly nearby, bathed in the warm glow of a binary sunset.  Is this a record of a cherished companion, or a scientific study of an unusual creature?"
+//         // },
+//         // {
+//         //   "s_description_text": "A playful moment unfolds: an astronaut, holding a strange, bioluminescent plant, playfully dangles it in front of their horse. The horse, snorting and pawing the ground playfully, seems eager to snatch the glowing prize.  Is this a moment of levity during a long exploration, or are they testing the properties of the alien flora?"
+//         // },
+//         // {
+//         //   "s_description_text": "A silent exchange unfolds: an astronaut, holding a strange device, extends it towards their horse. The horse, ears pricked and nostrils flared, snorts curiously at the unfamiliar object.  Is the astronaut offering a treat or attempting to communicate using alien technology?"
+//         // },
+//         // {
+//         //   "s_description_text": "A serene partnership unfolds: an astronaut, hand outstretched, offers a strange, bioluminescent plant to their horse. The horse, bathed in the ethereal glow of the plant, lowers its head curiously to sniff the offering.  Is this a moment of trust between explorer and companion, or are they studying the potential uses of this alien flora?"
+//         // },
+//         // {
+//         //   "s_description_text": "An unexpected hurdle: an astronaut, sprawled on the alien ground, reaches for their helmet which has tumbled a few feet away. Their horse, standing calmly nearby, whinnies softly.  Did the astronaut lose their balance, or were they spooked by something in this strange new environment?"
+//         // },
+//         // {
+//         //   "s_description_text": "A watchful vigil: an astronaut, perched atop a rocky ridge, surveys the alien landscape through a pair of high-powered binoculars. Their horse stands patiently beside them, its head held high, ears swiveling to catch any sound. Are they searching for signs of life, or keeping watch for potential dangers in this uncharted territory?"
+//         // }
+//         {
+//             "s_description_text": "A bustling marketplace unfolds: vendors hawk their wares under colorful awnings, while shoppers weave through the crowd. A lone figure, silhouetted against the setting sun, seems lost in thought. Are they a weary traveler, or a local resident with a hidden agenda?"
+//             },
+//             {
+//             "s_description_text": "A solitary lighthouse stands sentinel on a rocky cliff, its powerful beam slicing through the stormy night. Enormous waves crash against the jagged rocks, sending plumes of spray high into the air.  Is this a scene of peaceful solitude or a dramatic struggle against the elements?"
+//             },
+//             {
+//             "s_description_text": "A majestic waterfall cascades down a lush green mountainside, its water collecting in a crystal-clear pool below. Lush ferns and vibrant flowers line the rocky path leading to the falls.  Is this a haven of tranquility or a hidden entrance to a forgotten world?"
+//             },
+//             {
+//             "s_description_text": "A vibrant coral reef teems with life: colorful fish dart between intricate coral formations, while a graceful sea turtle glides effortlessly through the crystal-clear water.  Is this a glimpse into an untouched underwater paradise or a fragile ecosystem threatened by change?"
+//             },
+//             {
+//             "s_description_text": "A lone sailboat battles a raging storm. The wind whips at the tattered sails, and the boat heels dangerously in the churning waves. The crew, faces etched with determination, fights to keep the vessel afloat.  Will they weather the storm, or will they be swallowed by the unforgiving sea?"
+//             },
+//             {
+//             "s_description_text": "A bustling cityscape stretches towards the horizon. Towering skyscrapers pierce the clouds, while streams of vehicles navigate the complex network of roads below.  Is this a symbol of human progress or a cautionary tale of unchecked urban sprawl?"
+//             },
+//             {
+//             "s_description_text": "A group of archaeologists meticulously brushes away dirt from an ancient artifact. The artifact, partially buried in the sand, appears to be a weathered statue of a long-forgotten deity.  What secrets will be unearthed from the sands of time?"
+//             },
+//             {
+//             "s_description_text": "A lone figure gazes out at a breathtaking vista of rolling hills bathed in the golden light of dawn. Mist hangs low in the valleys, and a gentle breeze rustles through the tall grass.  Is this a moment of peaceful reflection or a yearning for adventure?"
+//             },
+//             {
+//             "s_description_text": "A bustling kitchen is a whirlwind of activity. Chefs expertly chop vegetables, stir simmering pots, and plate dishes with artistic flair. The air is filled with the aroma of delicious food.  Is this a glimpse into a world-renowned restaurant or a family preparing a home-cooked meal?"
+//             },
+//             {
+//             "s_description_text": "A group of friends laughs and cheers as they raise their glasses in a toast. The table is laden with food and drinks, and the room is filled with festive decorations.  Is this a joyous celebration of a special occasion or a casual gathering of loved ones?"
+//             },
+//             {
+//             "s_description_text": "A lone hiker navigates a treacherous mountain path. The path is narrow and winding, with sheer cliffs on one side and a deep valley on the other. The hiker, determined and focused, continues their ascent.  Will they reach the summit, or will the treacherous terrain prove too much?"
+//             },
+//             {
+//             "s_description_text": "A majestic lion surveys its domain from atop a rocky outcrop. Its golden mane shimmers in the sunlight, and its powerful gaze commands respect.  Is this the king of the jungle asserting its dominance, or a solitary creature observing its surroundings?"
+//             },
+//             {
+//             "s_description_text": "A bustling train station is a hive of activity. Passengers hurry to board their trains, while vendors hawk their wares and announcements echo through the halls.  Is this the start of an exciting journey or a return to a familiar place?"
+//             },
+//             {
+//             "s_description_text": "A group of children play pirates on a sandy beach. They build elaborate sandcastles, brandish sticks as swords, and chase each other with shouts of delight.  Is this a carefree afternoon of make-believe or a glimpse into the future of daring explorers?"
+//             },
+//             {
+//             "s_description_text": "A concert hall is filled with the music of a symphony orchestra. The conductor leads with passion, and the musicians play with skill and precision. The audience sits enthralled, captivated by the beautiful sounds.  Is this a night of cultural enrichment or a fleeting escape from the everyday world?"
+//             },
+//             {
+//                 "s_description_text": "An abandoned library stands shrouded in mystery. Cobwebs drape the dusty shelves, and sunlight streams through broken windows, illuminating forgotten books.  Does this forgotten place hold hidden knowledge, or is it simply a relic of the past?"
+//                 },
+//                 {
+//                 "s_description_text": "A lone blacksmith hammers away at a piece of glowing metal on his anvil. Sparks fly as he shapes the metal with powerful blows, his brow furrowed in concentration.  Is this a skilled craftsman at work, or an artist creating a masterpiece?"
+//                 },
+//                 {
+//                 "s_description_text": "A bustling street market overflows with colorful fabrics, exotic spices, and handcrafted goods. Shopkeepers call out to passersby, and the air is filled with the sounds of bargaining and laughter.  Is this a cultural melting pot or a testament to the human spirit of commerce?"
+//                 },
+//                 {
+//                 "s_description_text": "A serene yoga class unfolds in a sunlit studio. Participants lie on their mats in various poses, their eyes closed and their bodies relaxed. The instructor speaks softly, guiding them through their practice.  Is this a path to inner peace or a trendy fitness routine?"
+//                 },
+//                 {
+//                 "s_description_text": "A group of protestors marches down a crowded street, their voices chanting slogans and their signs held high. Police officers in riot gear stand guard on the sidelines.  Is this a fight for justice or a symptom of social unrest?"
+//                 },
+//                 {
+//                 "s_description_text": "A vintage car rally winds its way through a picturesque countryside landscape. Classic automobiles from different eras gleam in the sunlight, their engines purring contentedly.  Is this a nostalgic celebration of automotive history or a competition for passionate collectors?"
+//                 },
+//                 {
+//                 "s_description_text": "A group of astronomers peers through a giant telescope, their eyes focused on the distant stars. The control room is filled with blinking lights and complex computer screens.  Are they searching for new worlds or unlocking the secrets of the universe?"
+//                 },
+//                 {
+//                 "s_description_text": "A lone angler casts their line into a glassy lake at sunrise. The mist hangs low over the water, and the only sound is the gentle lapping of waves against the shore.  Is this a moment of peaceful solitude or a patient wait for the perfect catch?"
+//                 },
+//                 {
+//                 "s_description_text": "A bustling ballet studio echoes with the sounds of leaping dancers and Tchaikovsky's Swan Lake. Young ballerinas rehearse their steps with grace and precision, striving for perfection.  Is this the start of a promising career or a dedication to a lifelong passion?"
+//                 },
+//                 {
+//                 "s_description_text": "A bustling bakery fills the air with the aroma of freshly baked bread. Golden loaves and pastries line the shelves, tempting customers with their deliciousness.  Is this a glimpse into a traditional craft or a modern take on a timeless treat?"
+//                 },
+//                 {
+//                 "s_description_text": "A group of rock climbers scales a sheer cliff face, their movements precise and calculated. They rely on trust and teamwork to navigate the challenging terrain.  Is this a test of physical skill or a metaphor for overcoming obstacles?"
+//                 },
+//                 {
+//                 "s_description_text": "A bustling hospital emergency room is a scene of controlled chaos. Medical professionals work tirelessly to treat patients, their faces etched with determination.  Is this a battle against time or a testament to human compassion?"
+//                 },
+//                 {
+//                 "s_description_text": "A blacksmith's apprentice carefully observes their master at work. They watch with fascination as the metal is shaped and transformed, eager to learn the secrets of the craft.  Is this the passing of knowledge from one generation to the next or the start of a lifelong dedication?"
+//                 },
+//                 {
+//                 "s_description_text": "A majestic bald eagle soars through a clear blue sky, its powerful wings beating steadily. It surveys the landscape below with a keen eye, searching for prey.  Is this a symbol of freedom and power or a predator at the top of the food chain?"
+//                 },
+//                 {
+//                 "s_description_text": "A bustling farmers market overflows with fresh produce. Local farmers showcase their best offerings, from colorful fruits and vegetables to fragrant herbs and vibrant flowers.  Is this a celebration of local agriculture or a glimpse into a sustainable way of life?"
+//                 }
+//     ].map(o=>{
+//         return o.s_description_text
+//     })
+// ]
+// a_s = [
+//     ...'Another simple logo for my it company.|'.repeat(5).split('|'), 
+//     ...'Another simple logo for my fast food joint.|'.repeat(10).split('|'), 
+//     ...'Another simple logo for my neural institute.|'.repeat(10).split('|'), 
+//     ...'Another simple logo for my library.|'.repeat(10).split('|'), 
+// ]
 
+let a_s = [
+// "A hyperdetailed CGI illustration of a powerful eagle soaring through a vast sea of stars. Its outstretched wings are formed from wispy nebulae, trailing stardust in their wake. The eagle's head, a cluster of tightly packed stars, gazes intently at the cosmos below.",
+
+// "A whimsical CGI scene of a playful dolphin leaping through a field of nebulae. Its sleek body is formed from a swirling pink and purple nebula, leaving a trail of shimmering stardust in its wake. Distant galaxies twinkle in the background, creating a dreamy and fantastical scene.",
+
+// "A photorealistic CGI close-up of a vibrant butterfly formed from a nebula. The wings are a mesmerizing combination of swirling gas and dust, with hues of blue, green, and purple. Tiny stars twinkle within the nebula, creating a sense of awe and wonder at the beauty of the cosmos.",
+
+// "A dramatic CGI scene of a colossal serpent winding its way through a field of nebulae. Its long body is formed from a dark, swirling nebula, with stars scattered like jewels throughout. The serpent's eyes glow with an eerie light, adding to the fantastical atmosphere.",
+
+// "A fantastical CGI illustration of a wise owl perched on a cosmic cloud. Its body is a swirling nebula with deep blue and purple hues, and its large eyes are formed from clusters of bright stars. The owl gazes intently at the universe below, radiating an air of knowledge and mystery.",
+
+// "A photorealistic CGI scene of a majestic dragon soaring through a nebula. Its body is a fiery red nebula, with wings formed from swirling gas and dust. The dragon's eyes glow with an intense orange light, and its powerful roar echoes through the cosmos.",
+
+// "A hyperdetailed CGI illustration of a delicate spider web woven across a nebula. The web is formed from shimmering stardust, connecting various clusters of stars that represent the spider's intricate legs. The center of the web glows with a faint light, hinting at the hidden spider within.",
+
+// "A whimsical CGI scene of a playful crab scuttling across a bed of nebulae. Its shell is a swirling blue and green nebula, with pincers formed from stardust. Tiny galaxies twinkle in the background, adding to the fantastical scenery.",
+...["Lion", "Elephant", "Tiger", "Zebra", "Giraffe", "Cheetah", "Gorilla", "Chimpanzee", "Kangaroo", "Koala",
+"Panda", "Hippopotamus", "Rhinoceros", "Whale", "Dolphin", "Shark", "Sea Turtle", "Octopus", "Eagle",
+"Hawk", "Owl", "Parrot", "Peacock", "Hummingbird", "Snake", "Spider", "Butterfly", "Bee", "Ant", "Crab"].map(s=>{
+    return `A breathtaking astrophotography of a mystical ${s} formed entirely from celestial nebulae.
+    The swirling gas clouds define the animal's powerful form, with vibrant colors like blues, purples, and pinks highlighting its features.
+    Starlight peeks through the nebulae, adding depth and a sense of awe to this fantastical creature. 
+    Imagine the image captured with a powerful telescope, revealing the intricate details of the nebulae that form the animal's body, 
+    deep sky, nebula, star cluster, galaxy, wide field, long exposure, hydrogen alpha, emission nebula, reflection nebula, planetary nebula, supernova remnant, cosmic dust, dark nebula, light pollution filter, equatorial mount, astrophotography camera, telescope, astrophotographer`
+
+})
+]
 for(let s of a_s){ 
     await f_sleep_n_ms(1000)
     await f_o_response__from_s_input(
         s_name_platform__openai, 
-        `Generate an image: ${s}, random seed ${new Date().getTime()}`
+        `Generate an image: ${s}`
     )
 }}
 f()
