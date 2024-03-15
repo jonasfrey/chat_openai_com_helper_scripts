@@ -1,6 +1,7 @@
 let s_name_platform__openai = 'openai'
 let s_name_platform__anthropic = 'anthropic'
 let s_name_platform__gemini = 'gemini'
+let s_name_platform__easydiffusion = 'easydiffusion'
 
 let f_b_generating = function(
     s_name_platform = s_name_platform__openai
@@ -24,6 +25,16 @@ let f_b_generating = function(
         }
         return false
     }
+    if(s_name_platform == s_name_platform__easydiffusion){
+        let o = document.querySelector('.taskStatusLabel');
+        // if(o?.innerText.toLowerCase() == 'processing'){
+
+        // }
+        if(o.style.display != 'none'){
+            return true
+        }
+        return false
+    }
 }
 let f_execute_send_prompt = async function(   
     s_name_platform = s_name_platform__openai, 
@@ -43,6 +54,10 @@ let f_execute_send_prompt = async function(
     }
     if(s_name_platform == s_name_platform__gemini){
         let o_btn = await f_o__element_last_from_selector(`[aria-label="Send message"]`);
+        o_btn.click()
+    }
+    if(s_name_platform == s_name_platform__easydiffusion){
+        let o_btn = await f_o__element_last_from_selector(`#makeImage`);
         o_btn.click()
     }
 }
@@ -124,6 +139,16 @@ let f_o_response__last = async function(
             [],
         )
     }
+    if(s_name_platform == s_name_platform__easydiffusion){
+        let a_a_o_img = Array.from(document.querySelectorAll('.img-preview')).map(o=>{
+            return Array.from(o.querySelectorAll('img'))
+        })
+        o_response = new O_response(
+            [],
+            [],
+            a_a_o_img?.at(0).map(o=>o.src)// will be data url b64 encoded
+        )
+    }
     o_response.v_a_v_text_jsonparsed = o_response.v_a_s_text.map(
         s=>{
             try {
@@ -173,6 +198,9 @@ let f_update_prompt = async function(
     }
     if(s_name_platform == s_name_platform__gemini){
         document.querySelector('rich-textarea p').innerText = s_prompt
+    }
+    if(s_name_platform == s_name_platform__easydiffusion){
+        document.querySelector('#prompt').value = s_prompt
     }
 }
 let f_claude = async function(){
@@ -602,7 +630,18 @@ let a_s = [
     "Elephant", "Tiger", "Zebra", "Giraffe", "Cheetah", "Gorilla", "Chimpanzee", "Kangaroo", "Koala",
 "Panda", "Hippopotamus", "Rhinoceros", "Whale", "Dolphin", "Shark", "Sea Turtle", "Octopus", "Eagle",
 "Hawk", "Owl", "Parrot",
- "Peacock", "Hummingbird", "Snake", "Spider", "Butterfly", "Bee", "Ant", "Crab","Lion"].map(s=>{
+ "Peacock", "Hummingbird", "Snake", "Spider", "Butterfly", "Bee", "Ant", "Crab","Lion",
+ "Snow Leopard",
+ "Orangutan",
+ "Polar Bear",
+ "Red Fox",
+ "Bison",
+ "Wolverine",
+ "Platypus",
+ "Komodo Dragon",
+ "Red Panda",
+ "Emperor Penguin"
+].map(s=>{
 
     return `Generate an awe-inspiring crop circle design that resembles the graceful form of an ${s}. Let the intricate patterns and curves of the crop mimic the contours and movement of the creature, capturing its essence in a mesmerizing display of natural artistry. The design should evoke a sense of wonder and curiosity, as if the crop itself has come alive to create this stunning image in homage to the beauty of the animal kingdom`
     // return `Generate an image of an ${s} that is composed of the sea. The scene should depict an aerial view of the ocean, with a portion of the blue sea visible along with the white foam created by the tiny waves. The animal should seamlessly blend into the sea, incorporating elements of water, foam, and possibly marine life to create a surreal and fantastical representation of an oceanic creature.`
@@ -618,7 +657,8 @@ let a_s = [
 for(let s of a_s){ 
     await f_sleep_n_ms(1000)
     await f_o_response__from_s_input(
-        s_name_platform__openai, 
+        s_name_platform__easydiffusion, 
+        // s_name_platform__openai, 
         `Generate an image: ${s}`
     )
 }}
